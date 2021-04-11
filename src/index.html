@@ -7,21 +7,75 @@
 <html lang="en">
     <head>
         <title>Countdown to Hack Reactor Graduation</title>
-        <meta name="viewport" content="width-device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
         <div class="container">
             <div class="jumbotron">
-                <h1>Days to Graduation</h1>
+                <h1 class="display-2">
+                    Days to Graduation
+                    <br>                
+                    <small class="text-muted">Hack Reactor</small>
+                    <br>
+                </h1>
+                <h1 class="display-5">
+                    <small class="text-muted">September 10, 2021</small>
+                </h1>
                 <br>
             </div>
-            <div class="display">
-                <div class="days"></div>
-                <div class="hours"></div>
-                <div class="minutes"></div>
-                <div class="seconds"></div>
+            <div class="row" id="display">
+                <!--To add a shadow-->
+                <!--class="shadow p-3 mb-5 bg-body rounded"-->
+                <div class="col" id="days">
+                    <div class="card shadow p-3 mb-5 bg-body rounded" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">Days</h5>
+                            <div class="days-counter">
+                                <h1 class="display-1">153</h1>
+                            </div>
+                            <p class="card-text">info</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col" id="hours">
+                    <div class="card shadow p-3 mb-5 bg-body rounded" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">Hours</h5>
+                            <div class="hours-counter">
+                                <h1 class="display-1">5</h1>
+                            </div>
+                            <p class="card-text">info</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col" id="minutes">
+                    <div class="card shadow p-3 mb-5 bg-body rounded" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">Minutes</h5>
+                            <div class="minutes-counter">
+                                <h1 class="display-1">30</h1>
+                            </div>
+                            <p class="card-text">info</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- SECONDS COUNTER
+                <div class="col" id="seconds">
+                    <div class="card shadow p-3 mb-5 bg-body rounded" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">Seconds</h5>
+                            <div class="seconds-counter">
+                                <h1 class="display-1">5</h1>
+                            </div>
+                            <p class="card-text">info</p>
+                        </div>
+                    </div>
+                </div>
+                -->
             </div>
-            <div class="final-date"></div>
+            <!--Possible add a progress bar here-->
+            <!--Button to create new timer on new page-->
         </div>
         <script></script>
             
