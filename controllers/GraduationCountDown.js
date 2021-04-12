@@ -20,27 +20,26 @@ class GraduationTimer {
         this.graduation.setSeconds(seconds);
     }   
     
-    getDate(){
+    getGraduationDate(){
         return this.graduation;
     }
 
     getCurrentDate(){
         var output = {};
-        var now = new Date();
-
-        output['year'] = now.getFullYear();
-        output['month'] = now.getMonth();
-        output['days'] = now.getDay();
-        output['hours'] = now.getHours();
-        output['minutes'] = now.getMinutes();
-        output['seconds'] = now.getSeconds();
-
-        return output;
+        var now = new Date();        
+        return now;
     }
 
-    getGraduationDate(){
-        // var localTime = this.graduation.toString();
-        return this.graduation.toString();
+    formatDate(date){
+        var output = {};
+        output['year'] = date.getFullYear();
+        output['month'] = date.getMonth();
+        output['days'] = date.getDay();
+        output['hours'] = date.getHours();
+        output['minutes'] = date.getMinutes();
+        output['seconds'] = date.getSeconds();
+
+        return output;
     }
 
     calculateRemainingDays(){
@@ -83,6 +82,9 @@ class GraduationTimer {
 var gradDate = new GraduationTimer();
 var remaining = gradDate.calculateRemainingDays();
 
+console.log();
+console.log('Today = ' + gradDate.getCurrentDate());
+console.log('Graduation = ' + gradDate.getGraduationDate());
 console.log();
 console.log(`Remaining time until ${gradDate.graduation.toString()}`);
 console.log(`days = ${remaining.days}\nhours = ${remaining.hours}`);
