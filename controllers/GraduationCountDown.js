@@ -1,7 +1,7 @@
 const { data } = require("jquery");
 
 
-class GraduationTimer {
+class GraduationCountDown {
     constructor(){
         // September 10, 2021 00:01:00 EST
         var year = 2021;
@@ -21,7 +21,7 @@ class GraduationTimer {
     }   
     
     getGraduationDate(){
-        return this.graduation;
+        return this.graduation.toString();
     }
 
     getCurrentDate(){
@@ -79,14 +79,19 @@ class GraduationTimer {
     }
 }
 
-var gradDate = new GraduationTimer();
-var remaining = gradDate.calculateRemainingDays();
+// export module
+if (typeof module !== 'undefined' && module.hasOwnProperty('exports')){
+    module.exports = GraduationCountDown;
+}
 
-console.log();
-console.log('Today = ' + gradDate.getCurrentDate());
-console.log('Graduation = ' + gradDate.getGraduationDate());
-console.log();
-console.log(`Remaining time until ${gradDate.graduation.toString()}`);
-console.log(`days = ${remaining.days}\nhours = ${remaining.hours}`);
-console.log(`minutes = ${remaining.minutes}\nseconds = ${remaining.seconds}`);
-console.log();
+var gradDate = new GraduationCountDown();
+// var remaining = gradDate.calculateRemainingDays();
+
+// console.log();
+// console.log('Today = ' + gradDate.getCurrentDate());
+console.log(typeof gradDate.getGraduationDate());
+// console.log();
+// console.log(`Remaining time until ${gradDate.graduation.toString()}`);
+// console.log(`days = ${remaining.days}\nhours = ${remaining.hours}`);
+// console.log(`minutes = ${remaining.minutes}\nseconds = ${remaining.seconds}`);
+// console.log();
