@@ -6,6 +6,7 @@ class CountDown {
       
         this.graduation = new Date(year,month,day,hour,minutes,seconds);
     }   
+    // setters
     setYear(year){
         this.graduation.setFullYear(year);
     }
@@ -29,7 +30,8 @@ class CountDown {
     setSeconds(seconds){
         this.graduation.setSeconds(seconds);
     }
-    
+
+    // getters
     getDate(){
         return this.graduation.toString();
     }
@@ -40,6 +42,7 @@ class CountDown {
         return now;
     }
 
+    // formatting
     formatDate(date){
         var output = {};
         output['year'] = date.getFullYear();
@@ -52,6 +55,7 @@ class CountDown {
         return output;
     }
 
+    // calculating
     calculateRemainingDays(){
         var now = Date.now();
         var theBigDay = Date.parse(this.graduation);
@@ -59,7 +63,13 @@ class CountDown {
         
         
         // milliseconds to days
-        var days = UTCdifference / 1000 / 60 / 60 / 24;
+        var years = UTCdifference / 1000 / 60 / 60 / 24 / 365;
+
+        if ( years >= 1){
+            var days = years % Math.floor(years) * 365;
+        } else {
+            days = UTCdifference / 1000 / 60 / 60 / 24;
+        }
 
         if (days >= 1){
             var hours = days % Math.floor(days) * 24;
@@ -81,6 +91,7 @@ class CountDown {
 
 
         var remaining = {};
+        remaining['years'] = Math.floor(years);
         remaining['days'] = Math.floor(days);
         remaining['hours'] = Math.floor(hours);
         remaining['minutes'] = Math.floor(minutes);
@@ -93,9 +104,4 @@ class CountDown {
 if (typeof module !== 'undefined' && module.hasOwnProperty('exports')){
     module.exports = CountDown;
 }
-
-var gradDate = new CountDown(2021,8,10,0,0,1);
-var remaining = gradDate.calculateRemainingDays();
-
-console.log(gradDate.getDate());
 
