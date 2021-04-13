@@ -4,61 +4,67 @@ const { data } = require("jquery");
 class CountDown {
     constructor(year, month, day, hour, minutes, seconds){
       
-        this.graduation = new Date(year,month,day,hour,minutes,seconds);
+        this._endDate = new Date(year,month,day,hour,minutes,seconds);
+        this._now = new Date();
     }   
     // setters
     setYear(year){
-        this.graduation.setFullYear(year);
+        this._endDate.setFullYear(year);
     }
 
     setMonth(month){
-        this.graduation.setMonth(month);
+        this._endDate.setMonth(month);
     }
 
     setDay(day){
-        this.graduation(day);
+        this._endDate(day);
     }
 
     setHour(hour){
-        this.graduation(hour);
+        this._endDate(hour);
     }
 
     setMinutes(minutes){
-        this.graduation.setMinutes(minutes);
+        this._endDate.setMinutes(minutes);
     }
 
     setSeconds(seconds){
-        this.graduation.setSeconds(seconds);
+        this._endDate.setSeconds(seconds);
     }
 
     // getters
-    getDate(){
-        return this.graduation.toString();
+    getEndDate(){
+        return this._endDate;
     }
 
+    /**
+     * 
+     * @returns string representation of Date object of current time
+     */
     getCurrentDate(){
-        var output = {};
-        var now = new Date();        
-        return now;
+        return this._now;
     }
 
     // formatting
-    formatDate(date){
+    formatDate(){
         var output = {};
-        output['year'] = date.getFullYear();
-        output['month'] = date.getMonth();
-        output['days'] = date.getDay();
-        output['hours'] = date.getHours();
-        output['minutes'] = date.getMinutes();
-        output['seconds'] = date.getSeconds();
+        output['year'] = this._endDate.getFullYear();
+        output['month'] = this._endDate.getMonth();
+        output['days'] = this._endDate.getDay();
+        output['hours'] = this._endDate.getHours();
+        output['minutes'] = this._endDate.getMinutes();
+        output['seconds'] = this._endDate.getSeconds();
 
         return output;
     }
 
-    // calculating
+    /**
+     * Calculates remaining time between now and end date
+     * @returns remaining object containing years, days, hours, minutes, seconds
+     */
     calculateRemainingDays(){
-        var now = Date.now();
-        var theBigDay = Date.parse(this.graduation);
+        var now = Date.parse(this._now);
+        var theBigDay = Date.parse(this._endDate);
         var UTCdifference = (theBigDay > now) ? theBigDay - now : 0;
         
         
@@ -104,4 +110,16 @@ class CountDown {
 if (typeof module !== 'undefined' && module.hasOwnProperty('exports')){
     module.exports = CountDown;
 }
+
+// var year = 2021;
+// var month = 8;
+// var day = 10;
+// var hour = 0;
+// var minutes = 0;
+// var seconds = 1;
+// date = new CountDown(year,month,day,hour,minutes,seconds);
+
+// var theDay = date.getEndDate();//.toString();
+// console.log(theDay);
+            
 

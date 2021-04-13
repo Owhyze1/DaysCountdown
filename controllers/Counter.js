@@ -9,7 +9,14 @@ class Counter{
         this._secondsElement = document.getElementsByName("seconds");
     }
 
-    changeCounter(){
+    displayValues(timeLeft){
+        this._dayElement.innerHTML = timeLeft['days'];
+        this._hourElement.innerHTML = timeLeft['hours'];
+        this._minutesElement.innerHTML = timeLeft['minutes'];
+        this._secondsElement.innerHTML = timeLeft['seconds'];
+    }
 
+    decrementValues(){
+        
     }
 }
