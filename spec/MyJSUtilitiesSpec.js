@@ -1,23 +1,27 @@
-var Graduation = require('../controllers/GraduationCountDown.js');
-// const utils = require("../controllers/GraduationCountDown.js");
+var Graduation = require('../controllers/CountDown.js');
 
 describe("MyJSUtilities", function(){
 
     describe("Graduation Count Down", function(){
 
         describe("Test Support Functions", function(){
+            var date;
+
+            beforeAll(function(){
+                var year = 2021;
+                var month = 8;
+                var day = 10;
+                var hour = 0;
+                var minutes = 0;
+                var seconds = 1;
+                date = new Graduation(year,month,day,hour,minutes,seconds);
+            });
 
             // test getGraduationDate() 
-            it("should return September 10, 2021", function(){
-                // FORMAT
-                // Fri Sep 10 2021 00:00:01 GMT-0400 (Eastern Daylight Time)
-                var date = new Graduation();
-                var actual = date.getGraduationDate();              
-
-                // DATE object properties: year, monthIndex, day, hours, minutes, seconds, milliseconds
+            it("should return September 10, 2021", function(){            
+                var actual = date.getDate();              
                 var expected = "Fri Sep 10 2021 00:00:01 GMT-0400 (Eastern Daylight Time)";
-            
-                
+                            
                 expect(actual).toEqual(expected);
             });
 
@@ -37,8 +41,26 @@ describe("MyJSUtilities", function(){
         });
 
         describe("Test Calculations", function(){
+            var date;
 
-            it("should return 1 day remaining", function(){
+            beforeAll(function(){
+                var year = 2021;
+                var month = 8;
+                var day = 10;
+                var hour = 0;
+                var minutes = 0;
+                var seconds = 1;
+                date = new Graduation(year,month,day,hour,minutes,seconds);s                
+            });
+
+            beforeEach(function(){
+                var now = Date.now();
+                
+
+            });
+
+            it(`From ${date} `, function(){
+                
                 expect().nothing();
             });
 
