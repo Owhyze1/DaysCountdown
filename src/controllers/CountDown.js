@@ -1,7 +1,5 @@
-const { data } = require("jquery");
 
-
-class CountDown {
+export class CountDown {
     constructor(year, month, day, hour, minutes, seconds){
       
         this._endDate = new Date(year,month,day,hour,minutes,seconds);
@@ -106,10 +104,11 @@ class CountDown {
     }
 }
 
+
 // export module
-if (typeof module !== 'undefined' && module.hasOwnProperty('exports')){
-    module.exports = CountDown;
-}
+// if (typeof module !== 'undefined' && module.hasOwnProperty('exports')){
+//     module.exports = CountDown;
+// }
 
 // var year = 2021;
 // var month = 8;
