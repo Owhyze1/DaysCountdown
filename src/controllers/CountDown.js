@@ -103,22 +103,3 @@ export class CountDown {
         return remaining;
     }
 }
-
-
-// export module
-// if (typeof module !== 'undefined' && module.hasOwnProperty('exports')){
-//     module.exports = CountDown;
-// }
-
-// var year = 2021;
-// var month = 8;
-// var day = 10;
-// var hour = 0;
-// var minutes = 0;
-// var seconds = 1;
-// date = new CountDown(year,month,day,hour,minutes,seconds);
-
-// var theDay = date.getEndDate();//.toString();
-// console.log(theDay);
-            
-
