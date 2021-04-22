@@ -93,6 +93,10 @@ export class CountDown {
             seconds = UTCdifference / 1000;
         }
 
+        if (seconds > 59 ){
+            console.log(`Countdown.js: seconds = ${seconds}`);
+        }
+
 
         var remaining = {};
         remaining['years'] = Math.floor(years);

@@ -20,13 +20,14 @@ var decrement = function decrementValues(timeLeft){
     // start countdown and display
     var timeInterval = 990; 
     setInterval(function(){
-        console.log(`setInterval function started`);
         // decrement sec
         // if sec < 0, sec = 59            
        --sec;
        if (sec < 0){
            sec = 59;
-       } 
+       } else if (sec > 59){
+           console.log(`seconds = ${sec}`);
+       }
         secElem.innerHTML = sec;
 
         // if sec === 59, decrement minute
@@ -64,7 +65,6 @@ var decrement = function decrementValues(timeLeft){
             stopTimer();
         }
 
-        console.log(`Bottom of setInterval`);
     }, timeInterval);
 }
 
