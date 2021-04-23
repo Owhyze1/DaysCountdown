@@ -2,35 +2,14 @@
 export class CountDown {
     constructor(year, month, day, hour, minutes, seconds){
       
+        // Format
+        // FRI Sep 10 2021 00:00:01 GMT-0400 (Eastern Daylight Time)
         this._endDate = new Date(year,month,day,hour,minutes,seconds);
         this._now = new Date();
     }   
-    // setters
-    setYear(year){
-        this._endDate.setFullYear(year);
-    }
 
-    setMonth(month){
-        this._endDate.setMonth(month);
-    }
-
-    setDay(day){
-        this._endDate(day);
-    }
-
-    setHour(hour){
-        this._endDate(hour);
-    }
-
-    setMinutes(minutes){
-        this._endDate.setMinutes(minutes);
-    }
-
-    setSeconds(seconds){
-        this._endDate.setSeconds(seconds);
-    }
-
-    // getters
+    // Format
+    // FRI Sep 10 2021 00:00:01 GMT-0400 (Eastern Daylight Time)        
     getEndDate(){
         return this._endDate;
     }
@@ -48,12 +27,26 @@ export class CountDown {
         var output = {};
         output['year'] = this._endDate.getFullYear();
         output['month'] = this._endDate.getMonth();
-        output['days'] = this._endDate.getDay();
+        output['days'] = this._endDate.getDate();
         output['hours'] = this._endDate.getHours();
         output['minutes'] = this._endDate.getMinutes();
         output['seconds'] = this._endDate.getSeconds();
 
         return output;
+    }
+
+    printToConsole(){
+        console.log(`\nNow: \n${this._now}\n`);
+        let theDay = this.formatDate();
+
+        console.log(`\nEnd Date: `);
+        console.log(`${this._endDate}`)
+        console.log(`Year: ${theDay['year']}`);
+        console.log(`Month: ${theDay['month']}`);
+        console.log(`Days: ${theDay['days']}`);
+        console.log(`Hours: ${this._endDate.getHours()}`);
+        console.log(`Minutes: ${this._endDate.getMinutes()}`);
+        console.log(`Seconds: ${this._endDate.getSeconds()}`);
     }
 
     /**
@@ -94,7 +87,14 @@ export class CountDown {
         }
 
         if (seconds > 59 ){
-            console.log(`Countdown.js: seconds = ${seconds}`);
+            console.log(`ERROR!!\n\nCountdown.js: seconds = ${seconds}`);
+
+            console.log(`UTC difference: ${UTCdifference} milliseconds`);
+            console.log(`Years: ${years}`);
+            console.log(`Days: ${days}`);
+            console.log(`Hours: ${hours}`);
+            console.log(`Minutes: ${minutes}`);
+            console.log(`Seconds: ${seconds}`);
         }
 
 
