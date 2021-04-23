@@ -73,10 +73,13 @@ function stopTimer(){
 }
 
 
+
 export function run(){
     $().ready(function(){
         var theBigDay = new CountDown(2021,8,10,0,0,1);
         var daysLeft = theBigDay.calculateRemainingDays();
+
+        theBigDay.printToConsole();
         
         decrement(daysLeft);
     });   
